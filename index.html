@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BakeHouse</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courgette&family=Kalam:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- logo -->
+    <section class="bake">
+      <section class="logo">
+        <div class="navLogo">
+          <img src="./images/BAKEHOuSE.png" alt="img" />
+          <input id="search" type="text" placeholder="search" />
+        </div>
+      </section>
+      <!-- navbar -->
+      <navbar class="navBar">
+        <div class="nav-links" id="navLinks">
+          <ul>
+            <li><a id="home" href="#">HOME</a></li>
+            <li><a href="#">SHOP</a></li>
+            <li><a href="#">MENUS</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">CONTACT</a></li>
+          </ul>
+          <div id="explore">
+            <a href="./index.html"
+              ><button id="Login"><h2>Login</h2></button></a
+            >
+
+            <a href="./signUp.html"
+              ><button id="signUp"><h2>Sign Up</h2></button></a
+            >
+          </div>
+        </div>
+      </navbar>
+      <!-- hero -->
+      <section>
+        <div class="heroMain">
+          <h1 id="heroTxt"><em> Login</em></h1>
+          <h2 id="heroInfo"><em> Welcome Back</em></h2>
+          <label id="heroName">Username : </label><br />
+          <input
+            type="text"
+            placeholder="Enter Username"
+            name="username"
+            id="userName"
+            required
+          /><br />
+          <label id="heroPass">Password : </label><br />
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            id="passWord"
+            required
+          /><br />
+
+          <div class="basicOpt">
+            <a id="basicRemember" href="#">Remember me</a>
+
+            <a id="basicPass" href="#">Forget Password?</a>
+          </div>
+          <div class="button">
+            <h4><a href="">Submit</a></h4>
+            <!-- <a href="#">Submit</a> -->
+          </div>
+          <h5 id="account">
+            Don't have account? <a href=""><bold>Create new account</bold></a>
+          </h5>
+        </div>
+      </section>
+    </section>
+  </body>
+</html>
