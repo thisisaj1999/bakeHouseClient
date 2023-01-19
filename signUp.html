@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +9,10 @@
     <title>BakeHouse</title>
 
     <!-- css -->
-    <link rel="stylesheet" href="./style.css" />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <link rel="stylesheet" type="text/css" href=" {% static '.\style.css' %} ">
+
+    
 
     <!-- google font -->
     <link
@@ -20,14 +25,15 @@
     <section class="bake">
       <section class="logo">
         <div class="navLogo">
-          <img src="./images/BAKEHOuSE.png" alt="img" />
+          {% comment %} <img src="./images/BAKEHOuSE.png" alt="img" /> {% endcomment %}
+          <img src="{% static '.\images\BAKEHOuSE.png' %}" alt="img" />
           <input id="search" type="text" placeholder="search" />
         </div>
       </section>
 
       <!-- navbar -->
-      <navbar class="navBar">
-        <div class="nav-links" id="navLinks">
+        <navbar class="navBar">
+          <div class="nav-links" id="navLinks">
           <ul>
             <li><a id="home" href="#">HOME</a></li>
             <li><a href="#">SHOP</a></li>
@@ -36,11 +42,11 @@
             <li><a href="#">CONTACT</a></li>
           </ul>
           <div id="explore">
-            <a href="./index.html"
+            <a href="login"
               ><button id="Login"><h2>Login</h2></button></a
             >
 
-            <a href="./signUp.html"
+            <a href="signup"
               ><button id="signUp"><h2>Sign Up</h2></button></a
             >
           </div>
@@ -59,31 +65,38 @@
             <h1>Welcome!</h1>
           </div>
           <!-- *** -->
-          <form class="cardInfo">
+          <form class="cardInfo" method="POST" action='/signup'> {% csrf_token %}
             <label id="fname" for="fname">Name</label>
-            <input type="text" id="fname" name="fname" /><br />
+            <input type="text" id="fname" name="name" /><br />
 
             <label id="phone" for="phone">Ph.no</label>
             <input
               type="tel"
               id="phone"
               name="phone"
-              pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
             /><br />
 
             <label id="email" for="E-mail">E-mail</label>
-            <input type="text" id="email" name="mail" /><br />
+            <input type="text" id="email" name="email" /><br />
 
             <label id="pass" for="password">Password</label>
-            <input type="password" id="pass" required /><br />
+            <input type="password" id="pass" name="password" required /><br />
 
             <label id="Create" for="Create">Confirm</label>
-            <input type="password" id="Create" required />
+            <input type="password" id="Create" name="password1" required />
 
-            <!--  -->
-            <div class="button" id="button">
-              <h4><a href="#">Submit</a></h4>
-            </div>
+            {{message}}
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+
+
+            {% for message in messages %}<p> {{messages}} </p>{% endfor %}
+            
+            {% for errror in form.errors %}<p> {{error}} </p>{% endfor %}
+            
+            <!-- <div class="button" id="button">
+              <h4><a href="" type="submit">Submit</a></h4>
+            </div> -->
           </form>
         </div>
       </section>

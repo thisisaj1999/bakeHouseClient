@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +9,12 @@
     <title>BakeHouse</title>
 
     <!-- css -->
-    <link rel="stylesheet" href="./style.css" />
+    <!-- <link rel="stylesheet" href="./style.css" /> -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href=" {% static '.\style.css' %} "
+    />
 
     <!-- google font -->
     <link
@@ -20,7 +27,8 @@
     <section class="bake">
       <section class="logo">
         <div class="navLogo">
-          <img src="./images/BAKEHOuSE.png" alt="img" />
+          <img src="{% static '.\images\BAKEHOuSE.png' %}" alt="img" />
+
           <input id="search" type="text" placeholder="search" />
         </div>
       </section>
@@ -35,11 +43,11 @@
             <li><a href="#">CONTACT</a></li>
           </ul>
           <div id="explore">
-            <a href="./index.html"
+            <a href=""
               ><button id="Login"><h2>Login</h2></button></a
             >
 
-            <a href="./signUp.html"
+            <a href="signup"
               ><button id="signUp"><h2>Sign Up</h2></button></a
             >
           </div>
