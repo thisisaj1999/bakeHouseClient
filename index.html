@@ -58,34 +58,42 @@
         <div class="heroMain">
           <h1 id="heroTxt"><em> Login</em></h1>
           <h2 id="heroInfo"><em> Welcome Back</em></h2>
-          <label id="heroName">Username : </label><br />
-          <input
+          
+          <form method="POST" action="/login"> {% csrf_token %}
+
+            <label id="heroName">Username : </label><br />
+            <input
             type="text"
             placeholder="Enter Username"
             name="username"
             id="userName"
             required
-          /><br />
-          <label id="heroPass">Password : </label><br />
-          <input
+            /><br />
+            <label id="heroPass">Password : </label><br />
+            <input
             type="password"
             placeholder="Enter Password"
             name="password"
             id="passWord"
             required
-          /><br />
+            /><br />
+            
+            <div class="basicOpt">
+              <a id="basicRemember" href="#">Remember me</a>
+              
+              <a id="basicPass" href="#">Forget Password?</a>
+            </div>
+            <div class="button">
+            <button type="submit" class="btn btn-primary">Submit</button>
+              
+            </div>
+          </form>
+            <h5 id="account">
+              
+              {% for message in messages %} <p id="messages">{{message}}</p> {% endfor %} 
 
-          <div class="basicOpt">
-            <a id="basicRemember" href="#">Remember me</a>
-
-            <a id="basicPass" href="#">Forget Password?</a>
-          </div>
-          <div class="button">
-            <h4><a href="">Submit</a></h4>
-            <!-- <a href="#">Submit</a> -->
-          </div>
-          <h5 id="account">
-            Don't have account? <a href=""><bold>Create new account</bold></a>
+              Don't have account? <a href="/signup"><bold>Create new account</bold></a>
+              
           </h5>
         </div>
       </section>

@@ -66,8 +66,9 @@
           </div>
           <!-- *** -->
           <form class="cardInfo" method="POST" action='/signup'> {% csrf_token %}
-            <label id="fname" for="fname">Name</label>
-            <input type="text" id="fname" name="name" /><br />
+            <label id="fname" for="fname">Username</label>
+            {{form.username}} <br />
+            {% comment %} <input type="text" id="fname" name="name" /><br /> {% endcomment %}
 
             <label id="phone" for="phone">Ph.no</label>
             <input
@@ -77,23 +78,22 @@
             /><br />
 
             <label id="email" for="E-mail">E-mail</label>
-            <input type="text" id="email" name="email" /><br />
+            {{form.email}}<br />
+            {% comment %} <input type="text" id="email" name="email" /><br /> {% endcomment %}
 
             <label id="pass" for="password">Password</label>
-            <input type="password" id="pass" name="password" required /><br />
+            {{form.password1}}<br />
+            {% comment %} <input type="password" id="pass" name="password" required /><br /> {% endcomment %}
 
             <label id="Create" for="Create">Confirm</label>
-            <input type="password" id="Create" name="password1" required />
-
+            {{form.password2}}<br />
+            {% comment %} <input type="password" id="Create" name="password1" required /> {% endcomment %}
+            <br />
             {{message}}
             <br>
             <button type="submit" class="btn btn-primary">Submit</button>
 
 
-            {% for message in messages %}<p> {{messages}} </p>{% endfor %}
-            
-            {% for errror in form.errors %}<p> {{error}} </p>{% endfor %}
-            
             <!-- <div class="button" id="button">
               <h4><a href="" type="submit">Submit</a></h4>
             </div> -->
