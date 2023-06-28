@@ -1,0 +1,46 @@
+.block--aboutUs {
+  color: var(--color-secondary);
+}
+
+.aboutUs {
+  justify-items: center;
+  text-align: center;
+  padding: 8rem 3rem 6rem 3rem;
+}
+
+.aboutUs_img > img {
+  width: 100%;
+  display: block;
+}
+
+.aboutUs_content {
+  margin: 0 0.8rem;
+}
+
+.aboutUsHeading {
+  margin-bottom: 0;
+}
+
+.aboutUs_content > p {
+  margin-top: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .aboutUs {
+    gap: 1.6rem;
+    text-align: start;
+    align-items: center;
+    padding: 7rem 3rem;
+  }
+
+  .aboutUs_content {
+    align-self: center;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .aboutUs {
+    padding: 10rem;
+  }
+}

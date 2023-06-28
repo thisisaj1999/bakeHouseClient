@@ -1,0 +1,77 @@
+/* Hero */
+
+.hero {
+  padding: 5rem 0;
+  gap: 1rem;
+}
+
+.hero_img > img {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  display: block;
+}
+
+.hero_content {
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.hero_content > h1 {
+  margin: 0;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.hero_content > p {
+  margin: 1rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.hero_content > a {
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    align-items: center;
+    gap: 0;
+    padding: 6rem 0;
+  }
+
+  .hero_content {
+    text-align: left;
+  }
+
+  .hero_content > h1 {
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .hero_content > p {
+    margin: 2rem 2rem 1rem 0;
+    width: 95%;
+    /* line-height: none; */
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .hero {
+    padding: 10rem 0;
+  }
+
+  .hero_content {
+    padding-left: 4rem;
+  }
+
+  .hero_content > h1 {
+    line-height: 7.5rem;
+  }
+  .hero_content > p {
+    margin: 0.5rem 0;
+    width: 85%;
+    line-height: 4.8rem;
+  }
+}
+

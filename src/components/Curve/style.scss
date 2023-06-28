@@ -1,0 +1,127 @@
+/* Curve */
+
+.curve {
+  overflow: hidden;
+  position: relative;
+}
+
+.curve > img {
+  width: 100%;
+}
+
+.curve_content > h2,
+.curve_content > p {
+  margin: 0;
+}
+
+.curve_content {
+  padding-right: 16rem;
+  position: absolute;
+  top: 11%;
+  left: 3%;
+  color: var(--color-secondary);
+}
+
+.img_top > img,
+.img_mid > img,
+.img_bottom > img {
+  width: 100%;
+}
+
+.img_top {
+  position: absolute;
+  top: 0%;
+  right: -21%;
+  width: 49%;
+}
+
+.img_mid {
+  position: absolute;
+  width: 63%;
+  top: 37.3%;
+  right: 0%;
+  transform: rotate(35deg);
+}
+
+.img_bottom {
+  position: absolute;
+  width: 41%;
+  top: 58.8%;
+  left: -5%;
+}
+
+@media screen and (min-width: 425px) {
+  .curve_content {
+    padding-right: 19rem;
+    top: 15%;
+    left: 8%;
+  }
+  .img_bottom {
+    top: 59.5%;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .curve_content {
+    padding-right: 42rem;
+    left: 9%;
+  }
+  .img_bottom {
+    top: 60.3%;
+  }
+
+  .img_mid {
+    top: 37.7%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .curve_content {
+    padding-right: 50rem;
+    top: 20%;
+  }
+
+  .img_bottom {
+    top: 60.6%;
+  }
+
+  .img_mid {
+    top: 37.9%;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .curve_content {
+    /* padding-right: 70rem; */
+    padding-right: 86rem;
+    /* top: 17%; */
+    top: 22%;
+    left: 7%;
+  }
+
+  .img_bottom {
+    top: 61%;
+  }
+
+  .img_mid {
+    top: 38.1%;
+  }
+}
+
+/* curveBlock */
+
+.block--curve {
+  padding: 6rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .block--curve {
+    padding: 7rem 0;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .block--curve {
+    padding: 10rem 0;
+  }
+}

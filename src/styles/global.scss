@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@600;700;800&display=swap');
+
+:root {
+  --color-primary: #e58f00;
+  --color-secondary: #fff;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 65.2%;
+  background-color: #1d1d23;
+}
+
+body {
+  font-family: 'Saira Condensed', sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Font-Size */
+
+h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 4.5rem;
+}
+
+h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 767px) {
+  h1 {
+    font-size: 5rem;
+  }
+
+  h2 {
+    font-size: 3.6rem;
+  }
+
+  h3 {
+    font-size: 2.8rem;
+  }
+
+  p {
+    font-size: 2.3rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 7rem;
+  }
+
+  h2 {
+    font-size: 5rem;
+  }
+
+  h3 {
+    font-size: 3.8rem;
+  }
+
+  p {
+    font-size: 2.8rem;
+  }
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--color-primary);
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  color: black;
+  font-size: 3rem;
+  outline: 0;
+  padding: 1rem 3.7rem;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: #d38200;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+/* .container {
+  max-width: 1440px;
+  margin: 0 auto;
+} */
+
+/* Grid */
+.grid {
+  display: grid;
+}
+
+@media screen and (min-width: 320px) {
+  .grid--1x2x3 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .grid--1x2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid--1x3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid--1x4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid--1x2x3 {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+/* heroBlock */
+
+.block--hero {
+  background: url('../assets/images/meal1background.jpg') no-repeat
+    center center fixed;
+  /* background: url('./images/meal1background@3x.jpg') no-repeat center center fixed; */
+  background-color: rgba(25, 24, 24, 1);
+  background-blend-mode: overlay;
+  background-size: cover;
+  padding-bottom: 2.8rem;
+}

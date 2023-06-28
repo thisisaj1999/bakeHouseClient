@@ -1,0 +1,84 @@
+/* Testimonial */
+.block--testimonial {
+  padding: 6rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .block--testimonial {
+    padding: 7rem 0;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .block--testimonial {
+    padding: 10rem 0;
+  }
+}
+
+/* Testimonial */
+
+.testimonial_back {
+  background: url('../../assets/images/meal12@1x.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial_box {
+  border: 6px solid var(--color-primary);
+  background-color: rgba(31, 31, 38, 0.8);
+  filter: opacity(92%);
+  height: 40%;
+  max-width: 80%;
+  margin: 3rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testimonial_heading,
+.testimonial_content {
+  text-align: center;
+  margin: 0;
+  color: var(--color-secondary);
+}
+
+@media screen and (min-width: 425px) {
+  .testimonial_back {
+    background: url('../../assets/images/meal12@2x.jpg') no-repeat center center;
+    background-size: cover;
+  }
+
+  .testimonial_box {
+    border: 8px solid var(--color-primary);
+    max-width: 78%;
+    padding: 1.5rem;
+    margin: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .testimonial_box {
+    max-width: 52%;
+    padding: 1.9rem;
+    margin: 9rem;
+  }
+}
+
+@media screen and (min-width: 1140px) {
+  .testimonial_back {
+    background: url('../../assets/images/meal12.jpg') no-repeat center center;
+    background-size: cover;
+  }
+
+  .testimonial_box {
+    border: 10px solid var(--color-primary);
+    max-width: 50%;
+    padding: 3.2rem;
+    margin: 14rem;
+  }
+}
