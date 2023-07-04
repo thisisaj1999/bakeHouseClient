@@ -1,10 +1,8 @@
-import React from 'react'
-import Home from './layouts/Home'
+import React from 'react';
+import AllRoutes from './components/Routes/AllRoutes';
 
 const App = () => {
-  return (
-    <Home/>
-  )
-}
+  return <AllRoutes />;
+};
 
-export default App
+export default App;
