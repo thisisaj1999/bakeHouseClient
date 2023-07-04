@@ -4,7 +4,7 @@ import meal4 from '../../assets/images/meal4.png';
 import meal5 from '../../assets/images/meal5&16.png';
 import './style.scss';
 
-const index = () => {
+const Curve = () => {
   return (
     <div>
       <section className="block--curve">
@@ -33,4 +33,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Curve;

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const index = () => {
+const Support = () => {
   return (
     <div>Support</div>
   )
 }
 
-export default index
+export default Support

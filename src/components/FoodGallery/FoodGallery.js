@@ -6,7 +6,7 @@ import meal10 from '../../assets/images/meal10.jpg';
 import meal11 from '../../assets/images/meal11.jpg';
 import './style.scss';
 
-const index = () => {
+const FoodGallery = () => {
   return (
     <div>
       <section className="block--gallery">
@@ -38,4 +38,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default FoodGallery;

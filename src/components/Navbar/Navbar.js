@@ -1,7 +1,7 @@
 import logo from '../../assets/logos/logo.png';
 import './style.scss';
 
-const index = () => {
+const Navbar = () => {
   return (
     <>
       <nav>
@@ -40,4 +40,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Navbar;

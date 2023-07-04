@@ -3,7 +3,7 @@ import meal14 from '../../assets/images/meal14.jpg';
 import meal15 from '../../assets/images/meal15.jpg';
 import './style.scss';
 
-const index = () => {
+const Menu = () => {
   return (
     <div>
       <section className="block--media">
@@ -58,4 +58,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Menu;

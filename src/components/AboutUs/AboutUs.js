@@ -1,7 +1,7 @@
 import meal2 from '../../assets/images/meal2.jpg';
 import './style.scss';
 
-const index = () => {
+const AboutUs = () => {
   return (
     <>
       <section className="block--aboutUs">
@@ -27,4 +27,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default AboutUs;

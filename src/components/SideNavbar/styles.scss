@@ -1,0 +1,47 @@
+.sideNavBarMainWrapper {
+  width: 12%;
+  border-right: 1px solid #33333d;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+//   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  height: 100dvh;
+  //   padding-left: 3.5rem;
+  padding: 2rem;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sideNavBarOptions {
+  display: flex;
+  flex-direction: column;
+//   justify-content: center;
+  gap: 1rem;
+  height: 90%;
+}
+
+.navOption {
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.2rem 3rem;
+  &:hover {
+    color: var(--color-secondary);
+  }
+}
+
+.navOptionActive {
+  background-color: #33333d;
+  border-radius: 6px;
+  color: var(--color-secondary);
+}
+
+.burgerBtn {
+  align-self: flex-end;
+  // margin-right: 2rem;
+  color: var(--color-primary);
+  &:hover {
+    color: var(--color-secondary);
+  }
+}

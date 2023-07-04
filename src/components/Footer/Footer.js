@@ -6,7 +6,7 @@ import instagram from '../../assets/logos/instagram.png';
 import pinterest from '../../assets/logos/pinterest.png';
 import './style.scss';
 
-const index = () => {
+const Footer = () => {
   return (
     <div>
       <section className="block--footer">
@@ -71,4 +71,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Footer;

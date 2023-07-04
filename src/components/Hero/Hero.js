@@ -1,8 +1,16 @@
 import meal1 from '../../assets/images/meal1.png';
 import './style.scss';
-import NavBar from '../Navbar';
+import NavBar from '../Navbar/Navbar';
+import { useNavigate } from "react-router-dom";
 
-const index = () => {
+const Hero = () => {
+
+  const navigate = useNavigate()
+
+  const onClickHandler = () =>{
+    navigate('/login');
+  }
+
   return (
     <>
       <NavBar />
@@ -18,7 +26,7 @@ const index = () => {
             laboriosam nostrum natus odit quam fuga temporibus nihil, error
             tenetur animi.
           </p>
-          <a className="btn" href="#" target="_blank">
+          <a className="btn" onClick={onClickHandler} target="_blank">
             Contact Us
           </a>
         </div>
@@ -27,4 +35,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Hero;

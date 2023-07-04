@@ -1,6 +1,6 @@
 import './style.scss';
 
-const index = () => {
+const Testimonial = () => {
   return (
     <div>
       <section className="block--testimonial">
@@ -20,4 +20,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Testimonial;
