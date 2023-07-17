@@ -1,120 +1,167 @@
-import React, { useState } from 'react';
-import './styles.scss';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import { Box, Divider } from '@mui/material';
+import MuiDrawer from '@mui/material/Drawer';
+import { FaHamburger } from 'react-icons/fa';
+import { TbChevronLeft } from 'react-icons/tb';
 import { IoHome } from 'react-icons/io5';
 import { MdBorderColor } from 'react-icons/md';
 import { BiSolidShoppingBagAlt } from 'react-icons/bi';
 import { SlSupport } from 'react-icons/sl';
-import { SiBurgerking } from 'react-icons/si';
+import DotRing from '../DotRing/DotRing';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
 
-const SideNavbar = () => {
-  const [currentTab, setCurrentTab] = useState('home');
-  const [activeTab, setActiveTab] = useState({
-    home: true,
-    orders: false,
-    products: false,
-    support: false,
-  });
+import './styles.scss';
 
-  const onClickTabChangeHandler = (val) => {
-    switch (val) {
-      case 'home':
-        setActiveTab({
-          home: true,
-          orders: false,
-          products: false,
-          support: false,
-        });
-        break;
+const drawerWidth = 240;
 
-      case 'orders':
-        setActiveTab({
-          home: false,
-          orders: true,
-          products: false,
-          support: false,
-        });
-        break;
+const openedMixin = (theme) => ({
+  width: drawerWidth,
+  transition: theme.transitions.create('width', {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.enteringScreen,
+  }),
+  overflowX: 'hidden',
+});
 
-      case 'products':
-        setActiveTab({
-          home: false,
-          orders: false,
-          products: true,
-          support: false,
-        });
-        break;
+const closedMixin = (theme) => ({
+  transition: theme.transitions.create('width', {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  overflowX: 'hidden',
+  width: `calc(${theme.spacing(7)} + 1px)`,
+  [theme.breakpoints.up('sm')]: {
+    width: `calc(${theme.spacing(8)} + 1px)`,
+  },
+});
 
-      case 'support':
-        setActiveTab({
-          home: false,
-          orders: false,
-          products: false,
-          support: true,
-        });
-        break;
+const DrawerHeader = styled('div')(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'flex-end',
+  justifyContent: 'flex-end',
+  padding: theme.spacing(0, 1),
+  paddingTop: '2rem',
+  gap: '2rem',
+  flexDirection: 'column',
+  justifyContent: 'flex-start',
+  backgroundColor: '#1d1d23',
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+}));
 
-      default:
-        break;
-    }
-  };
+const Drawer = styled(MuiDrawer, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
+  width: drawerWidth,
+  flexShrink: 0,
+  whiteSpace: 'nowrap',
+  boxSizing: 'border-box',
+  ...(open && {
+    ...openedMixin(theme),
+    '& .MuiDrawer-paper': openedMixin(theme),
+  }),
+  ...(!open && {
+    ...closedMixin(theme),
+    '& .MuiDrawer-paper': closedMixin(theme),
+  }),
+}));
 
-  console.log(activeTab, 'activetab');
-  return (
-    <div>
-      <div className="sideNavBarMainWrapper">
-        <SiBurgerking className="burgerBtn" />
-        <div className="sideNavBarOptions">
-          <div
-            className={`navOption ${currentTab === 'home' && 'navOptionActive'}`}
-            onClick={() => {
-              onClickTabChangeHandler('home');
-              setCurrentTab('home');
-            }}
-          >
-            <IoHome />
-            Home
-          </div>
-          <div
-            className={`navOption ${
-              currentTab === 'orders' && 'navOptionActive'
-            }`}
-            onClick={() => {
-              onClickTabChangeHandler('orders');
-              setCurrentTab('orders');
-            }}
-          >
-            <MdBorderColor />
-            Orders
-          </div>
-          <div
-            className={`navOption ${
-              currentTab === 'products' && 'navOptionActive'
-            }`}
-            onClick={() => {
-              onClickTabChangeHandler('products');
-              setCurrentTab('products');
-            }}
-          >
-            <BiSolidShoppingBagAlt />
-            Products
-          </div>
-          <div
-            className={`navOption ${
-              currentTab === 'support' && 'navOptionActive'
-            }`}
-            onClick={() => {
-              onClickTabChangeHandler('support');
-              setCurrentTab('support');
-            }}
-          >
-            <SlSupport />
-            Support
-          </div>
-        </div>
-      </div>
-      <div></div>
-    </div>
+function SideNavbar() {
+  const [open, setOpen] = React.useState(false);
+  console.log(open, 'open');
+
+  const handleDrawerOpen = () => setOpen(true);
+
+  const handleDrawerClose = () => setOpen(false);
+
+  const sideNavOpt = React.useMemo(
+    () => [
+      {
+        optId: 1,
+        icon: <IoHome />,
+        title: 'Home',
+      },
+      {
+        optId: 2,
+        icon: <MdBorderColor />,
+        title: 'Orders',
+      },
+      {
+        optId: 3,
+        icon: <BiSolidShoppingBagAlt />,
+        title: 'Products',
+      },
+      {
+        optId: 4,
+        icon: <SlSupport />,
+        title: 'Support',
+      },
+    ],
+    []
   );
-};
+
+  return (
+    <Box className="sideNavMainWrapperStyles">
+      <Drawer variant="permanent" open={open} className="sideNavDrawerStyles">
+        <DotRing />
+        <DrawerHeader>
+          {open ? (
+            <TbChevronLeft
+              onClick={handleDrawerClose}
+              className="burgerBtnClose"
+            />
+          ) : (
+            <span className="burgerBtnContainer">
+              <FaHamburger onClick={handleDrawerOpen} className="burgerBtn" />
+            </span>
+          )}
+        </DrawerHeader>
+
+        <Divider className="sideNavOptDivider" />
+
+        <List className={`${!open && 'closeSideNavStyles'}`}>
+          {sideNavOpt.map((item) => (
+            <ListItem
+              key={item.optId}
+              disablePadding
+              className="sideNavOptMainStyles"
+            >
+              <ListItemButton
+                sx={{
+                  justifyContent: open ? 'initial' : 'center',
+                }}
+                className="sideNavOptStyles"
+              >
+                {open ? (
+                  <div className="sideNavOptionBtn">
+                    {item.icon}
+                    {item.title}
+                  </div>
+                ) : (
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                    }}
+                  >
+                    {item.icon}
+                  </ListItemIcon>
+                )}
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        {/* <DrawerHeader /> */}
+        <h2 style={{ display: 'flex' }}>Dashboard</h2>
+      </Box>
+    </Box>
+  );
+}
 
 export default SideNavbar;

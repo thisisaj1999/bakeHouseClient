@@ -1,46 +1,75 @@
-.sideNavBarMainWrapper {
-  width: 12%;
+.sideNavMainWrapperStyles {
+  display: flex;
+}
+
+.sideNavDrawerStyles .MuiPaper-root {
   border-right: 1px solid #33333d;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-//   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  height: 100dvh;
-  //   padding-left: 3.5rem;
-  padding: 2rem;
-  gap: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  background-color: #1d1d23;
+
+  & .MuiList-root {
+    margin: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.2rem 0;
+  }
+
+  & .sideNavOptDivider {
+    border-color: rgb(51, 51, 61);
+  }
 }
 
-.sideNavBarOptions {
-  display: flex;
-  flex-direction: column;
-//   justify-content: center;
-  gap: 1rem;
-  height: 90%;
-}
-
-.navOption {
+.burgerBtnClose,
+.burgerBtn {
+  align-self: flex-end;
   color: var(--color-primary);
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 1.2rem 3rem;
   &:hover {
     color: var(--color-secondary);
   }
 }
 
-.navOptionActive {
-  background-color: #33333d;
+.burgerBtnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.closeSideNavStyles {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.sideNavOptMainStyles {
+  display: block;
+
+ & .sideNavOptStyles {
+    min-height: 48px;
+    padding: 0 16px;
+  } 
+}
+
+.sideNavOptStyles:active {
   border-radius: 6px;
+  background-color: #33333d;
+}
+
+.sideNavOptStyles div {
+  color: var(--color-primary);
+}
+
+.sideNavOptStyles:hover div {
   color: var(--color-secondary);
 }
 
-.burgerBtn {
-  align-self: flex-end;
-  // margin-right: 2rem;
+.sideNavOptionBtn {
   color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.2rem 1.5rem;
   &:hover {
     color: var(--color-secondary);
   }
