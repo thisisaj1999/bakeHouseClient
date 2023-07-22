@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.scss';
 import { TextField, Button } from '@mui/material';
 import { TbArrowBigRightFilled, TbArrowBigRight } from 'react-icons/tb';
-import './style.scss';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from 'services/services';
 
 const Login = () => {
+  const [userData, setUserData] = useState({
+    username: '',
+    password: '',
+  });
   const [showIcon, setShowIcon] = useState(false);
   const [showPasswordIcon, setShowPasswordIcon] = useState(false);
 
@@ -15,7 +19,12 @@ const Login = () => {
   const handleShowPasswordIcon = () => setShowPasswordIcon(!showPasswordIcon);
 
   const navigate = useNavigate();
-  const handleLogin = () => navigate('/dashboard')
+  const handleLogin = () => {
+    loginUser(userData).then((res) => {
+      localStorage.setItem('userData', JSON.stringify(res.data));
+      navigate('/dashboard');
+    });
+  };
 
   return (
     <div className="loginMainWrapper">
@@ -31,6 +40,9 @@ const Login = () => {
                 autocomplete: 'off',
               },
             }}
+            onChange={(e) => {
+              setUserData({ ...userData, username: e.target.value });
+            }}
           />
           <div className="inputFields passwordField">
             <TextField
@@ -42,6 +54,9 @@ const Login = () => {
                 form: {
                   autocomplete: 'off',
                 },
+              }}
+              onChange={(e) => {
+                setUserData({ ...userData, password: e.target.value });
               }}
             />
             <span className="showHideIcon" onClick={handleShowPasswordIcon}>
