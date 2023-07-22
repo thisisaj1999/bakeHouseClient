@@ -8,7 +8,7 @@ import Dashboard from '../../layouts/Dashboard/Dashboard'
 export const authenticatedPaths = [
   {
     name: <Home />,
-    path: '/home',
+    path: '/',
   },
   {
     name: <Orders />,
