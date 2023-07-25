@@ -4,12 +4,16 @@ import { TextField, Button } from '@mui/material';
 import { TbArrowBigRightFilled, TbArrowBigRight } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from 'services/services';
+import { SnackbarProvider, VariantType, useSnackbar } from "notistack";
 
 const Login = () => {
   const [userData, setUserData] = useState({
-    username: '',
+    email: '',
     password: '',
   });
+
+  const { enqueueSnackbar } = useSnackbar();
+
   const [showIcon, setShowIcon] = useState(false);
   const [showPasswordIcon, setShowPasswordIcon] = useState(false);
 
@@ -19,11 +23,20 @@ const Login = () => {
   const handleShowPasswordIcon = () => setShowPasswordIcon(!showPasswordIcon);
 
   const navigate = useNavigate();
+
   const handleLogin = () => {
-    loginUser(userData).then((res) => {
-      localStorage.setItem('userData', JSON.stringify(res.data));
-      navigate('/dashboard');
-    });
+  loginUser(userData).then((res) => {
+    
+      if (res?.status === 200) {
+        alert(res?.data);
+        localStorage.setItem('userData', JSON.stringify(res?.data));
+        enqueueSnackbar("Login successfull", { variant: "success" });
+        navigate('/dashboard');
+      } else {
+        enqueueSnackbar("Login successfull", { variant: "error" });
+        navigate('/login')
+      }
+  })
   };
 
   return (
@@ -33,6 +46,7 @@ const Login = () => {
         <div className="loginFieldBox">
           <TextField
             className="inputFields"
+            type='email'
             placeholder="username"
             inputProps={{
               autocomplete: 'new-username',
@@ -41,7 +55,7 @@ const Login = () => {
               },
             }}
             onChange={(e) => {
-              setUserData({ ...userData, username: e.target.value });
+              setUserData({ ...userData, email: e.target.value });
             }}
           />
           <div className="inputFields passwordField">

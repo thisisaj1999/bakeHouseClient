@@ -27,7 +27,7 @@ const Hero = () => {
             tenetur animi.
           </p>
           <a className="btn" onClick={onClickHandler} target="_blank">
-            Contact Us
+            Get Started
           </a>
         </div>
       </div>

@@ -1,9 +1,10 @@
-import Home from '../../layouts/Home/Home';
-import Orders from '../../layouts/Orders/Orders';
-import Products from '../../layouts/Products/Products';
-import Support from '../../layouts/Support/Support';
-import Login from '../../layouts/Login/Login'
-import Dashboard from '../../layouts/Dashboard/Dashboard'
+import Home from 'layouts/Home/Home';
+import Orders from 'layouts/Orders/Orders';
+import Products from 'layouts/Products/Products';
+import Support from 'layouts/Support/Support';
+import Login from 'layouts/Login/Login'
+import Dashboard from 'layouts/Dashboard/Dashboard'
+import Signup from 'layouts/Signup/Signup';
 
 export const authenticatedPaths = [
   {
@@ -25,6 +26,10 @@ export const authenticatedPaths = [
   {
     name: <Login />,
     path: '/login',
+  },
+  {
+    name: <Signup/>,
+    path: '/signup',
   },
   {
     name: <Dashboard />,
