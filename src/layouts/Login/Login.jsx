@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 import { TextField, Button } from '@mui/material';
 import { TbArrowBigRightFilled, TbArrowBigRight } from 'react-icons/tb';
 import { useNavigate } from 'react-router-dom';
 import { loginUser } from 'services/services';
+import { useSnackbar } from 'notistack'
 
 const Login = () => {
+
+  const { enqueueSnackbar } = useSnackbar()
+
   const [userData, setUserData] = useState({
-    username: '',
+    email: '',
     password: '',
   });
   const [showIcon, setShowIcon] = useState(false);
@@ -21,8 +25,13 @@ const Login = () => {
   const navigate = useNavigate();
   const handleLogin = () => {
     loginUser(userData).then((res) => {
-      localStorage.setItem('userData', JSON.stringify(res.data));
-      navigate('/dashboard');
+      if(res?.status === 200){
+        localStorage.setItem('token', JSON.stringify(res?.data?.token));
+        enqueueSnackbar('Login successful', {variant : 'success'});
+        navigate('/dashboard');
+      }else{
+        enqueueSnackbar('Login failed', {variant : 'error'});
+      }
     });
   };
 
@@ -34,6 +43,7 @@ const Login = () => {
           <TextField
             className="inputFields"
             placeholder="username"
+            type='email'
             inputProps={{
               autocomplete: 'new-username',
               form: {
@@ -41,7 +51,7 @@ const Login = () => {
               },
             }}
             onChange={(e) => {
-              setUserData({ ...userData, username: e.target.value });
+              setUserData({ ...userData, email: e.target.value });
             }}
           />
           <div className="inputFields passwordField">
