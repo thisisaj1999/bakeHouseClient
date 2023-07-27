@@ -8,6 +8,7 @@ import { IoHome } from 'react-icons/io5';
 import { MdBorderColor } from 'react-icons/md';
 import { BiSolidShoppingBagAlt } from 'react-icons/bi';
 import { SlSupport } from 'react-icons/sl';
+import {RiLogoutBoxLine} from 'react-icons/ri'; 
 import DotRing from '../DotRing/DotRing';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -78,6 +79,8 @@ function SideNavbar() {
 
   const handleDrawerClose = () => setOpen(false);
 
+  
+
   const sideNavOpt = React.useMemo(
     () => [
       {
@@ -99,6 +102,11 @@ function SideNavbar() {
         optId: 4,
         icon: <SlSupport />,
         title: 'Support',
+      },
+      {
+        optId: 5,
+        icon: <RiLogoutBoxLine />,
+        title: 'logout',
       },
     ],
     []
