@@ -12,10 +12,6 @@ root.render(
 				maxSnack={3}
 				autoHideDuration={1000}
 				anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        Components={{
-          success: StyledMaterialDesignContent,
-          error: StyledMaterialDesignContent,
-        }}
 			>
 				<App />
 			</SnackbarProvider>
