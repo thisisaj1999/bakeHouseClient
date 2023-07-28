@@ -4,6 +4,7 @@ import Products from '../../layouts/Products/Products';
 import Support from '../../layouts/Support/Support';
 import Login from '../Login/Login'
 import Dashboard from '../../layouts/Dashboard/Dashboard'
+import Register from 'components/Register/Register';
 
 export const authenticatedPaths = [
   {
@@ -25,6 +26,10 @@ export const authenticatedPaths = [
   {
     name: <Login />,
     path: '/login',
+  },
+  {
+    name: <Register />,
+    path: '/register',
   },
   {
     name: <Dashboard />,
