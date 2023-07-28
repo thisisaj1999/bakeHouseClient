@@ -2,10 +2,18 @@ import React, { useState } from 'react';
 import './style.scss';
 import { TextField, Button } from '@mui/material';
 import { TbArrowBigRightFilled, TbArrowBigRight } from 'react-icons/tb';
-import './style.scss';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import { loginUser } from 'services/services';
+import { useSnackbar } from 'notistack'
 
 const Login = () => {
+
+  const { enqueueSnackbar } = useSnackbar()
+
+  const [userData, setUserData] = useState({
+    email: '',
+    password: '',
+  });
   const [showIcon, setShowIcon] = useState(false);
   const [showPasswordIcon, setShowPasswordIcon] = useState(false);
 
@@ -15,7 +23,17 @@ const Login = () => {
   const handleShowPasswordIcon = () => setShowPasswordIcon(!showPasswordIcon);
 
   const navigate = useNavigate();
-  const handleLogin = () => navigate('/dashboard')
+  const handleLogin = () => {
+    loginUser(userData).then((res) => {
+      if(res?.status === 200){
+        localStorage.setItem('token', JSON.stringify(res?.data?.token));
+        enqueueSnackbar('Login successful', {variant : 'success'});
+        navigate('/dashboard');
+      }else{
+        enqueueSnackbar('Login failed', {variant : 'error'});
+      }
+    });
+  };
 
   return (
     <div className="loginMainWrapper">
@@ -25,11 +43,15 @@ const Login = () => {
           <TextField
             className="inputFields"
             placeholder="username"
+            type='email'
             inputProps={{
               autocomplete: 'new-username',
               form: {
                 autocomplete: 'off',
               },
+            }}
+            onChange={(e) => {
+              setUserData({ ...userData, email: e.target.value });
             }}
           />
           <div className="inputFields passwordField">
@@ -42,6 +64,9 @@ const Login = () => {
                 form: {
                   autocomplete: 'off',
                 },
+              }}
+              onChange={(e) => {
+                setUserData({ ...userData, password: e.target.value });
               }}
             />
             <span className="showHideIcon" onClick={handleShowPasswordIcon}>

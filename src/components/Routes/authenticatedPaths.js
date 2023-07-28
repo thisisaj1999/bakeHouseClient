@@ -2,13 +2,14 @@ import Home from '../../layouts/Home/Home';
 import Orders from '../../layouts/Orders/Orders';
 import Products from '../../layouts/Products/Products';
 import Support from '../../layouts/Support/Support';
-import Login from '../../layouts/Login/Login'
+import Login from '../Login/Login'
 import Dashboard from '../../layouts/Dashboard/Dashboard'
+import Register from 'components/Register/Register';
 
 export const authenticatedPaths = [
   {
     name: <Home />,
-    path: '/home',
+    path: '/',
   },
   {
     name: <Orders />,
@@ -25,6 +26,10 @@ export const authenticatedPaths = [
   {
     name: <Login />,
     path: '/login',
+  },
+  {
+    name: <Register />,
+    path: '/register',
   },
   {
     name: <Dashboard />,
