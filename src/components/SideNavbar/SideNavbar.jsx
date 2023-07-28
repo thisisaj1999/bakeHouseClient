@@ -14,6 +14,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import { useNavigate } from 'react-router-dom';
 
 import './styles.scss';
 
@@ -73,13 +74,12 @@ const Drawer = styled(MuiDrawer, {
 
 function SideNavbar() {
   const [open, setOpen] = React.useState(false);
-  console.log(open, 'open');
 
   const handleDrawerOpen = () => setOpen(true);
 
   const handleDrawerClose = () => setOpen(false);
 
-  
+  const navigate = useNavigate()
 
   const sideNavOpt = React.useMemo(
     () => [
@@ -107,6 +107,10 @@ function SideNavbar() {
         optId: 5,
         icon: <RiLogoutBoxLine />,
         title: 'logout',
+        onClick: ()=>{
+          localStorage.removeItem("token");
+          navigate('/login')
+        }
       },
     ],
     []
@@ -145,7 +149,10 @@ function SideNavbar() {
                 className="sideNavOptStyles"
               >
                 {open ? (
-                  <div className="sideNavOptionBtn">
+                  <div 
+                  className="sideNavOptionBtn"
+                  onClick={item?.onClick}
+                  >
                     {item.icon}
                     {item.title}
                   </div>
@@ -154,6 +161,7 @@ function SideNavbar() {
                     sx={{
                       minWidth: 0,
                     }}
+                    onClick={item?.onClick}
                   >
                     {item.icon}
                   </ListItemIcon>
