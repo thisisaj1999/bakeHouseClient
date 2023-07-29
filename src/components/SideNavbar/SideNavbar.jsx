@@ -17,6 +17,7 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import { useNavigate } from 'react-router-dom';
 
 import './styles.scss';
+import Items from 'layouts/Items/Items';
 
 const drawerWidth = 240;
 
@@ -174,7 +175,8 @@ function SideNavbar() {
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         {/* <DrawerHeader /> */}
-        <h2 style={{ display: 'flex' }}>Dashboard</h2>
+        <Items sideBar={open}/>
+        {/* <h2 style={{ display: 'flex' }}>Dashboard</h2> */}
       </Box>
     </Box>
   );
